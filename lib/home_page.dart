@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hacked_home/util/hack_place.dart';
@@ -40,12 +41,25 @@ class _HomePageState extends State<HomePage> {
           style: GoogleFonts.bebasNeue(
             color: Colors.black,
             fontSize: 24,
+            letterSpacing: 2.0,
           ),
         ),
         centerTitle: false,
       ),
+      drawer: Drawer(),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              'Control House',
+              style: GoogleFonts.babylonica(
+                fontSize: 40,
+                letterSpacing: 2.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           Expanded(
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -62,6 +76,29 @@ class _HomePageState extends State<HomePage> {
                 );
               },
             ),
+          ),
+        ],
+      ),
+
+      // bottom curved navigation bar
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Color.fromARGB(8, 245, 245, 245),
+        color: Colors.deepPurple.shade200,
+        items: [
+          Icon(
+            Icons.home,
+            color: Colors.white,
+            size: 32.0,
+          ),
+          Icon(
+            Icons.done_all_outlined,
+            color: Colors.white,
+            size: 32.0,
+          ),
+          Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+            size: 32.0,
           ),
         ],
       ),
